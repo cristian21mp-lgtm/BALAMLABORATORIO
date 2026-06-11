@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio Balam | Análisis Clínicos</title>
+    <style>
+        /* --- ESTILOS GENERALES Y PALETA DE COLORES --- */
+        :root {
+            --primary-color: #00c49a; /* Verde clínico distintivo */
+            --primary-dark: #00a380;
+            --text-color: #2d3748;    /* Gris oscuro para lectura cómoda */
+            --bg-light: #f7fafc;      /* Fondo gris muy suave */
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* --- MENÚ DE NAVEGACIÓN --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Representación visual rápida del jaguar 'Balam' en el logo */
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- SECCIÓN PRINCIPAL (HERO) --- */
+        .hero {
+            background: linear-gradient(135deg, #f0fdf4 0%, var(--bg-light) 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 35px;
+        }
+
+        /* --- BOTONES --- */
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 4px 6px rgba(0, 196, 154, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 2px solid #cbd5e0;
+        }
+
+        .btn-secondary:hover {
+            background-color: #edf2f7;
+            border-color: #a0aec0;
+            transform: translateY(-2px);
+        }
+
+        /* --- SECCIÓN DE ACCESOS RÁPIDOS --- */
+        .features {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: var(--text-color);
+        }
+
+        .card p {
+            color: #718096;
+            font-size: 15px;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: var(--text-color);
+            color: #e2e8f0;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Laboratorio <span>Balam</span></div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Pruebas</a></li>
+                <li><a href="#ayuno">Requisitos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Sección Principal -->
+    <section class="hero" id="inicio">
+        <div class="hero-container">
+            <h1>Precisión y Confianza en tus Resultados Clínicos</h1>
+            <p>Comprometidos con tu salud a través de diagnósticos de alta calidad y atención profesional.</p>
+            <div class="cta-container">
+                <a href="#resultados" class="btn btn-primary">Consultar Resultados</a>
+                <a href="https://wa.me/tu-numero" target="_blank" class="btn btn-secondary">Cotizar por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+<!-- SECCIÓN DE CONSULTA DE RESULTADOS (ACTUALIZADA) -->
+<section id="resultados" class="resultados-section">
+    <div class="resultados-container">
+        <div class="resultados-card">
+            <div class="resultados-icon">🔐</div>
+            <h2>Portal de Resultados en Línea</h2>
+            <p>Introduce los datos impresos en tu comprobante de servicio para descargar tu reporte oficial en formato PDF.</p>
+            
+            <form class="resultados-form" id="formConsulta" onsubmit="event.preventDefault(); manejarConsulta();">
+                <div class="input-group">
+                    <label for="folio">Número de Folio / Orden</label>
+                    <input type="text" id="folio" placeholder="Ej. BALAM-1024" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Contraseña de Seguridad</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="btn-submit">Buscar y Descargar PDF</button>
+            </form>
+            <div id="mensajeError" class="mensaje-error"></div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* --- ESTILOS DEL PORTAL DE RESULTADOS --- */
+    .resultados-section {
+        padding: 60px 20px;
+        background-color: #ffffff;
+    }
+    .resultados-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .resultados-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 25px rgba(0, 196, 154, 0.08);
+        text-align: center;
+    }
+    .resultados-icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+    .resultados-card h2 {
+        font-size: 24px;
+        color: #2d3748;
+        margin-bottom: 10px;
+    }
+    .resultados-card p {
+        color: #718096;
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+    .resultados-form {
+        text-align: left;
+    }
+    .input-group {
+        margin-bottom: 20px;
+    }
+    .input-group label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        color: #4a5568;
+        margin-bottom: 8px;
+    }
+    .input-group input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #cbd5e0;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s;
+    }
+    .input-group input:focus {
+        outline: none;
+        border-color: #00c49a;
+        box-shadow: 0 0 0 3px rgba(0, 196, 154, 0.15);
+    }
+    .btn-submit {
+        width: 100%;
+        background-color: #00c49a;
+        color: white;
+        border: none;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+    }
+    .btn-submit:hover {
+        background-color: #00a380;
+    }
+    .mensaje-error {
+        color: #e53e3e;
+        font-size: 14px;
+        margin-top: 15px;
+        display: none;
+    }
+</style>
+
+<script>
+    function manejarConsulta() {
+        const folioInput = document.getElementById('folio').value.trim();
+        const passwordInput = document.getElementById('password').value.trim();
+        const errorDiv = document.getElementById('mensajeError');
+        const folio = folioInput.toUpperCase();
+
+        if (!folio.startsWith("BALAM-")) {
+            errorDiv.innerText = "Formato de folio incorrecto. Debe iniciar con 'BALAM-' (Ej. BALAM-1024).";
+            errorDiv.style.display = "block";
+            return;
+        }
+        if (passwordInput.length < 4) {
+            errorDiv.innerText = "La contraseña es demasiado corta. Verifícala en tu ticket.";
+            errorDiv.style.display = "block";
+            return;
+        }
+
+        errorDiv.style.display = "none";
+
+        // Conecta directamente con la carpeta de PDFs
+        const urlCarpetaServidor = "./resultados/"; 
+        const nombreArchivoPDF = folio + ".pdf";
+        const rutaCompletaPDF = urlCarpetaServidor + nombreArchivoPDF;
+
+        window.open(rutaCompletaPDF, '_blank');
+    }
+</script>
+
+    <!-- Accesos Rápidos / Tarjetas de Información -->
+    <main class="features" id="servicios">
+        <div class="card">
+            <h3>🔬 Análisis Especializados</h3>
+            <p>Contamos con las áreas de Hematología, Química Clínica, Inmunología y Coagulación con los más altos estándares.</p>
+        </div>
+        <div class="card">
+            <h3>⏱️ Requisitos de Ayuno</h3>
+            <p>Consulta las indicaciones previas para tus estudios (horas de ayuno, recolección de muestras) y asegura la exactitud de tus pruebas.</p>
+        </div>
+        <div class="card">
+            <h3>📲 Resultados Digitales</h3>
+            <p>Accede de forma segura y rápida a tus reportes en PDF escaneando el código QR de tu orden de servicio.</p>
+        </div>
+    </main>
+
+<!-- SECCIÓN DE REQUISITOS DE AYUNO -->
+<section id="ayuno" class="ayuno-section">
+    <div class="ayuno-container">
+        <div class="ayuno-header">
+            <h2>Indicaciones y Requisitos de Ayuno</h2>
+            <p>Para asegurar la máxima precisión en tus análisis clínicos, por favor sigue atentamente las indicaciones recomendadas para cada estudio.</p>
+        </div>
+
+        <div class="ayuno-grid">
+            <!-- Tarjeta 1: Química e Inmunología -->
+            <div class="ayuno-card">
+                <div class="ayuno-badge">8 a 12 Horas</div>
+                <h3>Química Clínica e Inmunología</h3>
+                <p class="estudios-lista">Aplica para: Glucosa, Perfil de Lípidos, Perfil Hepático, Hormonas y Pruebas Inmunológicas.</p>
+                <ul class="indicaciones-lista">
+                    <li>Estrictamente agua simple permitida durante el ayuno.</li>
+                    <li>Evitar el consumo de alcohol y cenas abundantes (altas en grasas) la noche anterior.</li>
+                    <li>No realizar ejercicio físico intenso antes de la toma.</li>
+                </ul>
+            </div>
+
+            <!-- Tarjeta 2: Biometría Hemática -->
+            <div class="ayuno-card">
+                <div class="ayuno-badge">4 Horas Mínimo</div>
+                <h3>Hematología (Biometría Hemática)</h3>
+                <p class="estudios-lista">Aplica para: Citometría Hemática, Conteo de Plaquetas y Extensión de Sangre Periférica.</p>
+                <ul class="indicaciones-lista">
+                    <li>Ayuno ligero de 4 horas es suficiente si no se combina con otros estudios.</li>
+                    <li>Ideal presentarse por la mañana.</li>
+                    <li>Informar al personal si se encuentra bajo tratamiento con algún medicamento.</li>
+                </ul>
+            </div>
+
+            <!-- Tarjeta 3: Coagulación -->
+            <div class="ayuno-card">
+                <div class="ayuno-badge">4 a 8 Horas</div>
+                <h3>Pruebas de Coagulación</h3>
+                <p class="estudios-lista">Aplica para: Tiempo de Protrombina (TP), Tiempo de Tromboplastina Parcial (TPT) y Fibrinógeno.</p>
+                <ul class="indicaciones-lista">
+                    <li>Ayuno ideal de 4 a 8 horas.</li>
+                    <li>Es fundamental notificar si toma anticoagulantes (ej. aspirina, warfrarina o acenocumarina) y la hora de su última dosis.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="ayuno-nota">
+            <p><strong>⚠️ Nota General:</strong> Si tu médico te solicitó un examen general de orina o muestras prenupciales, recuerda que la orina ideal es la primera de la mañana (previo aseo de la zona) y recolectada en un frasco estéril nuevo.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* --- ESTILOS DE LA SECCIÓN DE AYUNO --- */
+    .ayuno-section {
+        background-color: #f7fafc; /* Fondo gris suave para contrastar con el inicio */
+        padding: 80px 20px;
+    }
+
+    .ayuno-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .ayuno-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 50px auto;
+    }
+
+    .ayuno-header h2 {
+        font-size: 32px;
+        color: #2d3748;
+        margin-bottom: 15px;
+    }
+
+    .ayuno-header p {
+        color: #718096;
+        font-size: 16px;
+    }
+
+    .ayuno-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+    }
+
+    .ayuno-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 35px 25px;
+        border: 1px solid #e2e8f0;
+        position: relative;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Etiqueta de tiempo llamativa */
+    .ayuno-badge {
+        position: absolute;
+        top: -15px;
+        left: 25px;
+        background-color: #00c49a; /* Tu verde distintivo */
+        color: white;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 14px;
+        box-shadow: 0 4px 6px rgba(0, 196, 154, 0.2);
+    }
+
+    .ayuno-card h3 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: #2d3748;
+        font-size: 20px;
+    }
+
+    .estudios-lista {
+        font-size: 14px;
+        color: #00a380;
+        font-weight: 500;
+        margin-bottom: 20px;
+        background-color: #f0fdf4;
+        padding: 8px 12px;
+        border-radius: 6px;
+    }
+
+    .indicaciones-lista {
+        list-style: none;
+        padding: 0;
+    }
+
+    .indicaciones-lista li {
+        font-size: 14px;
+        color: #4a5568;
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 20px;
+    }
+
+    /* Punto personalizado para la lista */
+    .indicaciones-lista li::before {
+        content: "•";
+        color: #00c49a;
+        font-weight: bold;
+        font-size: 18px;
+        position: absolute;
+        left: 0;
+        top: -2px;
+    }
+
+    /* Recuadro de advertencia inferior */
+    .ayuno-nota {
+        background-color: #fffaf0;
+        border-left: 4px solid #dd6b20;
+        padding: 20px;
+        border-radius: 0 8px 8px 0;
+        margin-top: 40px;
+        color: #744210;
+        font-size: 15px;
+    }
+</style>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>&copy; 2026 Laboratorio Clínico Balam. Todos los derechos reservados.</p>
+        <p style="margin-top: 10px; color: #a0aec0; font-size: 12px;">San Cristóbal de las Casas, Chiapas.</p>
+    </footer>
+
+</body>
+</html>
